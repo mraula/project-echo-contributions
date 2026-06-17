@@ -16,7 +16,7 @@ and detections flow via MQTT to a FastAPI backend and a live-map dashboard — d
 
 ## Highlights
 
-### 🛰️ Edge-inference pipeline — >99% bandwidth reduction
+### Edge-inference pipeline — >99% bandwidth reduction
 [PR #903](https://github.com/DataBytes-Organisation/Project-Echo/pull/903)
 
 Designed and shipped an IoT edge-inference pipeline running **EfficientNetV2 (TFLite)
@@ -24,14 +24,14 @@ directly on Raspberry Pi nodes**. A dual-mode MQTT design sends structured detec
 (~300 bytes of JSON) instead of raw audio (~500 KB) — a **>99% cut in per-detection
 bandwidth** — while preserving full backward compatibility.
 
-### 🐛 Kubernetes hostname-resolution fix
+### Kubernetes hostname-resolution fix
 [PR #860](https://github.com/DataBytes-Organisation/Project-Echo/pull/860)
 
 Diagnosed and fixed a hostname-resolution bug that broke both local Docker Compose and
 GKE cloud deploys. Root cause: `API_HOST` not propagating correctly between Kubernetes
 service names and Compose hostnames.
 
-### 📦 Model optimisation — PyTorch → ONNX → TFLite INT8
+### Model optimisation — PyTorch → ONNX → TFLite INT8
 [PR #819](https://github.com/DataBytes-Organisation/Project-Echo/pull/819) · [PR #845](https://github.com/DataBytes-Organisation/Project-Echo/pull/845)
 
 Built the quantisation pipeline achieving **69–71% model size reduction** while classifying
@@ -40,13 +40,13 @@ standard TFLite runtime (no custom ops), and built a multi-backend inference eng
 (`ModelLoader` + abstract `InferenceEngine`) switching dynamically between ONNX Runtime and
 the TFLite Interpreter.
 
-### 📡 MQTT integration module — 14 unit tests
+### MQTT integration module — 14 unit tests
 [PR #888](https://github.com/DataBytes-Organisation/Project-Echo/pull/888)
 
 Built the engine-side MQTT integration with **14 unit tests** covering payload validation,
 broker configuration, and race-condition handling.
 
-### 🧪 Training framework + MLflow
+### Training framework + MLflow
 PyTorch training framework (Hydra config) supporting EfficientNetV2 and PANNs models,
 ArcFace / Circle loss, mixed-precision (bfloat16) training, SpecAugment, and LMDB caching —
 with all experiments tracked in MLflow.
